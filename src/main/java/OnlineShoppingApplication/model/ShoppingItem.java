@@ -2,6 +2,9 @@ package OnlineShoppingApplication.model;
 
 import jakarta.persistence.Entity;
 import jakarta.validation.constraints.*;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
@@ -9,9 +12,10 @@ import java.time.Period;
 @Entity
 public class ShoppingItem {
 
-    @item_Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
+
 
     @NotBlank(message = "Book name is required")
     @Size(max = 100, message = "Book name must be less than 100 characters")
