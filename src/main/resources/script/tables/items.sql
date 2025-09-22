@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS online_shopping.shopping_cart (
+CREATE TABLE IF NOT EXISTS online_shopping.shopping_item (
     item_id INT PRIMARY KEY AUTO_INCREMENT,
     book_name VARCHAR(100) NOT NULL,
     publisher VARCHAR(100),

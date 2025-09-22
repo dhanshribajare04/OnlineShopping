@@ -1,14 +1,14 @@
 package OnlineShoppingApplication.dto;
-import java.util.List;
 
+public class ApiResponse<T> {
 
-public class ApiResponse {
-    
     private boolean success;
-    private Object data;
+    private T data;
     private Object errors;
 
-    public ApiResponse(boolean success, Object data, Object errors) {
+    public ApiResponse() {}
+
+    public ApiResponse(boolean success, T data, Object errors) {
         this.success = success;
         this.data = data;
         this.errors = errors;
@@ -22,11 +22,11 @@ public class ApiResponse {
         this.success = success;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -37,5 +37,4 @@ public class ApiResponse {
     public void setErrors(Object errors) {
         this.errors = errors;
     }
-    
 }

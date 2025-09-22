@@ -1,4 +1,4 @@
-package OnlineShoppingApplication.Repository;
+package OnlineShoppingApplication.repository;
 import OnlineShoppingApplication.model.ShoppingItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 
