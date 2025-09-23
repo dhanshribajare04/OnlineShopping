@@ -10,5 +10,8 @@ public interface ShoppingItemService {
     // add new item
     ShoppingItem addItem(ShoppingItem item);
 
+    // update item
+    ShoppingItem updateItem(Long id, ShoppingItem item);
+
     
 }

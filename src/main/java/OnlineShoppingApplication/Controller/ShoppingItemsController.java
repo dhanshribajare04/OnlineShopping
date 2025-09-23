@@ -32,16 +32,25 @@ public class ShoppingItemsController {
     // @Autowired
     // private ShoppingItemRepository shoppingItemsRepository;
     // private ShoppingItemService shoppingItemService;
-
+    
+    // Get the data 
     @GetMapping("/items")
     public String getItems() {
         return "✅ API is working: Get all items";
     }
-
+    // Create the data
       @PostMapping("/items")
     public ResponseEntity<ApiResponse<ShoppingItem>> addItem(@RequestBody ShoppingItem item) {
         ShoppingItem savedItem = shoppingItemService.addItem(item);
         ApiResponse<ShoppingItem> response = new ApiResponse<>(true, savedItem, null);
+        return ResponseEntity.ok(response);
+    }
+    
+    // Update the data
+    @PutMapping("/items/{id}")
+    public ResponseEntity<ApiResponse<ShoppingItem>> updateItem(@PathVariable Long id, @RequestBody ShoppingItem item) {
+        ShoppingItem updatedItem = shoppingItemService.updateItem(id, item);
+        ApiResponse<ShoppingItem> response = new ApiResponse<>(true, updatedItem, null);
         return ResponseEntity.ok(response);
     }
     

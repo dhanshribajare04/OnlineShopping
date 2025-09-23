@@ -1,5 +1,6 @@
 package OnlineShoppingApplication.service.impl;
 
+import OnlineShoppingApplication.exception.ItemNotFoundException;
 import OnlineShoppingApplication.model.ShoppingItem;
 import OnlineShoppingApplication.repository.ShoppingItemRepository;
 import OnlineShoppingApplication.service.ShoppingItemService;
@@ -33,4 +34,20 @@ public class ShoppingItemServiceImpl implements ShoppingItemService {
 
         return shoppingItemRepository.save(item);
     }
+
+    @Override
+    public ShoppingItem updateItem(Long id, ShoppingItem item) {
+         ShoppingItem existingItem = shoppingItemRepository.findById(id)
+                .orElseThrow(() -> new ItemNotFoundException("Item with id " + id + " not found"));
+
+        // ✅ update fields
+        existingItem.setBookName(item.getBookName());
+        existingItem.setPublisher(item.getPublisher());
+        existingItem.setBookDescription(item.getBookDescription());
+        existingItem.setPrice(item.getPrice());
+        existingItem.setStock(item.getStock());
+
+        return shoppingItemRepository.save(existingItem);
+}
+
 }
